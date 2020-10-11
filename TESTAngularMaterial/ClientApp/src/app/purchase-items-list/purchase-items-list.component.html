@@ -1,0 +1,15 @@
+
+
+<ul>
+  <li *ngFor="let it of items">
+    <purchase-item-input [index]="it.index"
+                         [name]="it.name"
+                         [currency]="it.currency"
+                         [cost]="it.cost"
+                         [vatRate]="it.vatRate"
+                         [budgetItem]="it.budgetItem"
+                         (newItemEvent)="addItem($event)"
+                         (removeItemEvent)="removeItem($event)"
+                         (dataChangedEvent)="updateItem($event)"></purchase-item-input>
+  </li>
+</ul>

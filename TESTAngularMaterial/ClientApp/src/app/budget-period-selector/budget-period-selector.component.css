@@ -1,0 +1,16 @@
+
+.bp-selector-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+}
+
+
+
+
+.bp-selector-wrapper > mat-form-field {
+  height: 40px;
+}
+
+

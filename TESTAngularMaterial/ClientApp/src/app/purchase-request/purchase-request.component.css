@@ -1,0 +1,43 @@
+
+
+
+h6 {
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+
+.pr-wrapper {
+  display: grid;
+  flex-direction: column;
+  padding: 20px 16px 10px 16px;
+  /*grid-gap: 16px;*/
+}
+
+
+author-info {
+  margin-bottom: 1.2rem;
+}
+
+
+.grid-row-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+  margin-bottom: 2.2rem;
+}
+
+
+.content-row-wrapper {
+  display: grid;
+  grid-gap: 16px;
+  align-items: center;
+  grid-template-columns: minmax(auto, 100px) minmax(auto, 120px);
+  margin-bottom: 1.6rem;
+}
+
+
+.grid-row-wrapper > mat-form-field, .content-row-wrapper > mat-form-field {
+  height: 40px;
+}

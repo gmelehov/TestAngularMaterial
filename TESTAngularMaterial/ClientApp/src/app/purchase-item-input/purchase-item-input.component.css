@@ -1,0 +1,25 @@
+
+
+:host {
+  width: 100%;
+}
+
+
+.pi-input-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+  grid-template-columns: 1.2fr minmax(auto, 70px) minmax(auto, 110px) minmax(auto, 60px) 1fr auto;
+  align-items: center;
+}
+
+.pi-input-wrapper > * {
+  max-height: 44px;
+}
+
+
+.pi-input-wrapper > .btn-small {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}

@@ -1,0 +1,27 @@
+
+
+.mat-list-item {
+  margin: 0px 0 !important;
+}
+
+
+ul {
+  list-style: none;
+  padding: 4px;
+}
+
+ul li {
+  padding: 14px 10px 2px 10px;
+}
+
+ul li:hover {
+  background-color: hsl(0, 0%, 98%);
+}
+
+
+
+.pi-card {
+  width: 100%;
+  padding: 8px 16px 0 16px;
+  border-radius: 2px;
+}

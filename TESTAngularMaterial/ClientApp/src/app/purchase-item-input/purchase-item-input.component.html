@@ -1,0 +1,44 @@
+
+
+<div class="pi-input-wrapper">
+
+  <mat-form-field>
+    <mat-label>МАТЕРИАЛ/ТОВАР/УСЛУГА</mat-label>
+    <input matInput [(ngModel)]="name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>ВАЛЮТА</mat-label>
+    <mat-select [(ngModel)]="currency">
+      <mat-option *ngFor="let cur of currenciesList" [value]="cur">
+        {{cur}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>СТОИМОСТЬ</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="cost" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>СТАВКА НДС</mat-label>
+    <input matInput type="number" min="0" max="100" step="1" [(ngModel)]="vatRate" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>СТАТЬЯ БЮДЖЕТА</mat-label>
+    <input matInput [(ngModel)]="budgetItem" required />
+  </mat-form-field>
+
+
+  <button mat-icon-button color="primary" (click)="addNewItem(index)" class="btn-small">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button mat-icon-button color="warn" (click)="removeItem(index)" class="btn-small">
+    <mat-icon>remove</mat-icon>
+  </button>
+
+
+</div>

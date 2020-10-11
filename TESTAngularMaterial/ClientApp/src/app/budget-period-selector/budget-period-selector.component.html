@@ -1,0 +1,25 @@
+
+
+<div class="bp-selector-wrapper">
+
+  <mat-form-field [floatLabel]="never">
+    <mat-label>БЮДЖЕТНЫЙ ПЕРИОД: МЕСЯЦ</mat-label>
+    <mat-select [(value)]="month" (change)="onMonthChanged(month)">
+      <mat-option *ngFor="let mon of monthsList" [value]="mon.value">
+        {{mon.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field [floatLabel]="never">
+    <mat-label>БЮДЖЕТНЫЙ ПЕРИОД: ГОД</mat-label>
+    <mat-select [(value)]="year" (change)="onYearChanged(year)">
+      <mat-option *ngFor="let y of yearsList" [value]="y">
+        {{y}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+</div>
+
