@@ -1,3 +1,4 @@
+import { state, transition, trigger, animate, style } from '@angular/animations';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -8,13 +9,41 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'purchase-item-input',
   templateUrl: './purchase-item-input.component.html',
-  styleUrls: ['./purchase-item-input.component.css']
+  styleUrls: ['./purchase-item-input.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({ height: '100%', visibility: 'visible', paddingTop: '32px' })),
+      state('closed', style({ height: '0', visibility: 'hidden', paddingTop: '0px' })),
+      transition('open => closed', [ animate('225ms cubic-bezier(0.4,0.0,0.2,1)') ]),
+      transition('closed => open', [ animate('225ms cubic-bezier(0.4,0.0,0.2,1)') ]),
+    ]),
+    trigger('upDown', [
+      state('up', style({ transform: 'rotate(180deg)' })),
+      state('down', style({ transform: 'rotate(0)' })),
+      transition('up => down', [animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+      transition('down => up', [animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+    ]),
+  ]
 })
 export class PurchaseItemInputComponent
 {
   constructor()
   {
     this.value = new PurchaseItem(0, '', 'RUR', 0, 20, '');
+  }
+
+
+
+
+
+
+  isOpen = false;
+  isUp = false;
+
+  toggle()
+  {
+    this.isOpen = !this.isOpen;
+    this.isUp = !this.isUp;
   }
 
 

@@ -35,9 +35,15 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\author-info\author-info.component.ts" />
     <None Remove="ClientApp\src\app\budget-period-selector\budget-period-selector.component.ts" />
+    <None Remove="ClientApp\src\app\business-process\business-process.component.ts" />
+    <None Remove="ClientApp\src\app\mat-expander\mat-expander.component.ts" />
+    <None Remove="ClientApp\src\app\models\comm-offer.model.ts" />
+    <None Remove="ClientApp\src\app\models\counter-agent.model.ts" />
+    <None Remove="ClientApp\src\app\models\unit-result.model.ts" />
     <None Remove="ClientApp\src\app\purchase-item-input\purchase-item-input.component.ts" />
     <None Remove="ClientApp\src\app\purchase-items-list\purchase-items-list.component.ts" />
     <None Remove="ClientApp\src\app\purchase-request\purchase-request.component.ts" />
+    <None Remove="ClientApp\src\app\unit-result\unit-result.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

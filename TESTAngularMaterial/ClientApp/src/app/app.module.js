@@ -34,6 +34,9 @@ var icon_1 = require("@angular/material/icon");
 var button_1 = require("@angular/material/button");
 var table_1 = require("@angular/material/table");
 var list_1 = require("@angular/material/list");
+var stepper_1 = require("@angular/material/stepper");
+var business_process_component_1 = require("./business-process/business-process.component");
+var unit_result_component_1 = require("./unit-result/unit-result.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -49,7 +52,9 @@ var AppModule = /** @class */ (function () {
                 purchase_item_input_component_1.PurchaseItemInputComponent,
                 purchase_items_list_component_1.PurchaseItemsListComponent,
                 purchase_request_component_1.PurchaseRequestComponent,
-                author_info_component_1.AuthorInfoComponent
+                author_info_component_1.AuthorInfoComponent,
+                business_process_component_1.BusinessProcessComponent,
+                unit_result_component_1.UnitResultComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -71,9 +76,10 @@ var AppModule = /** @class */ (function () {
                 icon_1.MatIconModule,
                 button_1.MatButtonModule,
                 table_1.MatTableModule,
-                list_1.MatListModule
+                list_1.MatListModule,
+                stepper_1.MatStepperModule
             ],
-            providers: [],
+            providers: [forms_1.FormBuilder],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

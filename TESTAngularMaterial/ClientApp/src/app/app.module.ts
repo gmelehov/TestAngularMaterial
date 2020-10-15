@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -28,6 +28,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
+import { BusinessProcessComponent } from './business-process/business-process.component';
+import { UnitResultComponent } from './unit-result/unit-result.component';
 
 
 
@@ -43,7 +46,9 @@ import { MatListModule } from '@angular/material/list';
     PurchaseItemInputComponent,
     PurchaseItemsListComponent,
     PurchaseRequestComponent,
-    AuthorInfoComponent
+    AuthorInfoComponent,
+    BusinessProcessComponent,
+    UnitResultComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -65,9 +70,10 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

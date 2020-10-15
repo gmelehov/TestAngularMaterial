@@ -7,10 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PurchaseItem = exports.PurchaseItemInputComponent = void 0;
+var animations_1 = require("@angular/animations");
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
 var PurchaseItemInputComponent = /** @class */ (function () {
     function PurchaseItemInputComponent() {
+        this.isOpen = false;
+        this.isUp = false;
         this.stateChanges = new rxjs_1.Subject();
         /** Список валют */
         this.currenciesList = [
@@ -24,6 +27,10 @@ var PurchaseItemInputComponent = /** @class */ (function () {
         this.dataChangedEvent = new core_1.EventEmitter();
         this.value = new PurchaseItem(0, '', 'RUR', 0, 20, '');
     }
+    PurchaseItemInputComponent.prototype.toggle = function () {
+        this.isOpen = !this.isOpen;
+        this.isUp = !this.isUp;
+    };
     Object.defineProperty(PurchaseItemInputComponent.prototype, "index", {
         /** Внутренний индекс элемента в списке */
         get: function () {
@@ -141,7 +148,21 @@ var PurchaseItemInputComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'purchase-item-input',
             templateUrl: './purchase-item-input.component.html',
-            styleUrls: ['./purchase-item-input.component.css']
+            styleUrls: ['./purchase-item-input.component.css'],
+            animations: [
+                animations_1.trigger('openClose', [
+                    animations_1.state('open', animations_1.style({ height: '100%', visibility: 'visible', paddingTop: '32px' })),
+                    animations_1.state('closed', animations_1.style({ height: '0', visibility: 'hidden', paddingTop: '0px' })),
+                    animations_1.transition('open => closed', [animations_1.animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+                    animations_1.transition('closed => open', [animations_1.animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+                ]),
+                animations_1.trigger('upDown', [
+                    animations_1.state('up', animations_1.style({ transform: 'rotate(180deg)' })),
+                    animations_1.state('down', animations_1.style({ transform: 'rotate(0)' })),
+                    animations_1.transition('up => down', [animations_1.animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+                    animations_1.transition('down => up', [animations_1.animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
+                ]),
+            ]
         })
     ], PurchaseItemInputComponent);
     return PurchaseItemInputComponent;

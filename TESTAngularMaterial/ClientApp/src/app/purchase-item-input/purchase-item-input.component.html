@@ -1,6 +1,4 @@
-
-
-<div class="pi-input-wrapper">
+<!--<div class="pi-input-wrapper">
 
   <mat-form-field>
     <mat-label>МАТЕРИАЛ/ТОВАР/УСЛУГА</mat-label>
@@ -41,4 +39,56 @@
   </button>
 
 
-</div>
+</div>-->
+
+
+
+
+<mat-card [ngClass]="isOpen ? 'mat-elevation-z4 item-card' : 'mat-elevation-z0 item-card'">
+  <div class="pi-input-wrapper">
+
+    <mat-form-field>
+      <mat-label>МАТЕРИАЛ/ТОВАР/УСЛУГА</mat-label>
+      <input matInput [(ngModel)]="name" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>СТОИМОСТЬ</mat-label>
+      <input matInput type="number" min="0" step="0.01" [(ngModel)]="cost" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>СТАВКА НДС</mat-label>
+      <input matInput type="number" min="0" max="100" step="1" [(ngModel)]="vatRate" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>СТАТЬЯ БЮДЖЕТА</mat-label>
+      <input matInput [(ngModel)]="budgetItem" />
+    </mat-form-field>
+
+
+    <button mat-icon-button color="primary" (click)="addNewItem(index)" class="btn-small">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-icon-button color="warn" (click)="removeItem(index)" class="btn-small">
+      <mat-icon>remove</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="toggle()" class="btn-small">
+      <mat-icon [@upDown]="isUp ? 'up' : 'down'">arrow_downward</mat-icon>
+    </button>
+
+  </div>
+
+
+
+  <div class="open-close-container" [@openClose]="isOpen ? 'open' : 'closed'">
+
+    <unit-result [unit]="'РЦФО'" [decision]="'Approved'"></unit-result>
+    <unit-result [unit]="'Бюджетный контролер'"></unit-result>
+
+  </div>
+</mat-card>

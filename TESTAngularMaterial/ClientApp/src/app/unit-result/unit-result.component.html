@@ -1,0 +1,32 @@
+
+
+<div class="wrapper">
+
+  <h5 matSubheader>{{unit}}</h5>
+
+
+  <mat-form-field>
+    <mat-select [(value)]="decision" placeholder="решение" [disabled]="value.isFinished()">
+      <mat-option></mat-option>
+      <mat-option [value]="'Approved'">согласовано</mat-option>
+      <mat-option [value]="'Declined'">отклонено</mat-option>
+      <mat-option [value]="'Returned'">на доработку</mat-option>
+      <mat-option [value]="'Redirected'">изменить ЦФО</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput #commentInp [(ngModel)]="comment" placeholder="комментарий" [disabled]="value.isFinished()" />
+    <button mat-button *ngIf="commentInp.value" matSuffix mat-icon-button aria-label="Clear" (click)="commentInp.value=''" [disabled]="value.isFinished()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+
+  <button mat-icon-button (click)="saveResult()" class="btn-small" color="primary" [disabled]="value.isFinished() || !value.hasData()">
+    <mat-icon>save</mat-icon>
+  </button>
+
+
+</div>

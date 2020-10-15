@@ -19,8 +19,11 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Fira Sans Condensed', "Helvetica Neue", sans-serif !important;
-  background-color: hsl(0,0%,96%);
+  background-color: hsl(0,0%,94%);
+}
 
+.container {
+  max-width: 90% !important;
 }
 
 
@@ -46,14 +49,14 @@ button:focus {
   font-size: 13px;
 }
 .mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
-  line-height: 2.5em !important;
-  height: 2.5em !important;
+  line-height: 2.25em !important;
+  height: 2.25em !important;
 }
 
 
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: hsl(0, 0%, 78%);
+  background-color: hsl(0, 0%, 85%);
 }
 
 .mat-body, .mat-body-1, .mat-typography {

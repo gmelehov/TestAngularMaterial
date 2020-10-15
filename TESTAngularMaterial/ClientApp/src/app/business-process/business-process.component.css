@@ -1,0 +1,13 @@
+
+
+.mat-card {
+  font-family: 'Roboto Condensed' !important;
+}
+
+.mat-card-title {
+  font-weight: 400;
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 24px;
+}
