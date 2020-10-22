@@ -37,6 +37,7 @@ var list_1 = require("@angular/material/list");
 var stepper_1 = require("@angular/material/stepper");
 var business_process_component_1 = require("./business-process/business-process.component");
 var unit_result_component_1 = require("./unit-result/unit-result.component");
+var mat_expander_component_1 = require("./mat-expander/mat-expander.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -54,7 +55,8 @@ var AppModule = /** @class */ (function () {
                 purchase_request_component_1.PurchaseRequestComponent,
                 author_info_component_1.AuthorInfoComponent,
                 business_process_component_1.BusinessProcessComponent,
-                unit_result_component_1.UnitResultComponent
+                unit_result_component_1.UnitResultComponent,
+                mat_expander_component_1.MatExpanderComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

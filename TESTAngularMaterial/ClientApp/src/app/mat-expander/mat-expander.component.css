@@ -1,2 +1,38 @@
 
 
+:host {
+  display: block;
+}
+
+
+.item-card {
+  padding: 6px 12px;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+
+header > .summary-wrapper {
+  flex: 1;
+}
+
+
+
+.btn-small {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+
+
+
+section {
+  overflow: hidden;
+}

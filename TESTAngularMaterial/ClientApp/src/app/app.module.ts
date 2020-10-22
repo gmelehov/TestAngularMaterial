@@ -31,6 +31,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { BusinessProcessComponent } from './business-process/business-process.component';
 import { UnitResultComponent } from './unit-result/unit-result.component';
+import { MatExpanderComponent } from './mat-expander/mat-expander.component';
 
 
 
@@ -48,7 +49,8 @@ import { UnitResultComponent } from './unit-result/unit-result.component';
     PurchaseRequestComponent,
     AuthorInfoComponent,
     BusinessProcessComponent,
-    UnitResultComponent
+    UnitResultComponent,
+    MatExpanderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

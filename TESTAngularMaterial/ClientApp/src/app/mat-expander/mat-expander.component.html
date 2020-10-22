@@ -1,20 +1,17 @@
 
 
-<mat-card [ngClass]="isOpen ? 'mat-elevation-z4 item-card' : 'mat-elevation-z0 item-card'">
-  <div class="header">
-
-
-    <ng-content></ng-content>
-
-
+<mat-card [ngClass]="cardClass">
+  <header>
+    <div class="summary-wrapper">
+      <ng-content select=".summary"></ng-content>
+    </div>
     <button mat-icon-button (click)="toggle()" class="btn-small">
-      <mat-icon [@upDown]="isUp ? 'up' : 'down'">arrow_downward</mat-icon>
+      <mat-icon [@upDown]="isUp ? 'up' : 'down'">{{toggleIconName}}</mat-icon>
     </button>
-  </div>
+  </header>
 
 
-  <div class="open-close-container" [@openClose]="isOpen ? 'open' : 'closed'">
-
-
-  </div>
+  <section [@openClose]="isOpen ? 'open' : 'closed'">
+    <ng-content></ng-content>
+  </section>
 </mat-card>
