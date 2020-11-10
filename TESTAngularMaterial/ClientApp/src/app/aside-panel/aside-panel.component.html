@@ -1,0 +1,16 @@
+
+
+<aside [ngClass]="wrapperClass">
+  <div class="toggler">
+    <button mat-icon-button
+            (click)="toggle()"
+            class="btn-small">
+      <mat-icon [@leftRight]="isLeft ? 'left' : 'right'">{{toggleIconName}}</mat-icon>
+    </button>
+  </div>
+  
+
+  <div [@openClose]="isOpen ? 'open' : 'closed'">
+    <ng-content></ng-content>
+  </div>
+</aside>

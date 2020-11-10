@@ -32,6 +32,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { BusinessProcessComponent } from './business-process/business-process.component';
 import { UnitResultComponent } from './unit-result/unit-result.component';
 import { MatExpanderComponent } from './mat-expander/mat-expander.component';
+import { AsidePanelComponent } from './aside-panel/aside-panel.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -50,7 +52,8 @@ import { MatExpanderComponent } from './mat-expander/mat-expander.component';
     AuthorInfoComponent,
     BusinessProcessComponent,
     UnitResultComponent,
-    MatExpanderComponent
+    MatExpanderComponent,
+    AsidePanelComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -73,7 +76,8 @@ import { MatExpanderComponent } from './mat-expander/mat-expander.component';
     MatButtonModule,
     MatTableModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    OverlayModule,
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

@@ -1,0 +1,50 @@
+
+
+:host {
+  display: block;
+  height: inherit;
+  width: auto;
+  justify-self: flex-end;
+}
+
+
+
+aside {
+  overflow: hidden;
+  border-left: 3px solid hsla(0, 0%, 0%, 0.12);
+  background-color: hsla(0, 0%, 0%, 0.03);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+
+.btn-small {
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  opacity: 0.2;
+}
+
+.btn-small:hover {
+  opacity: 0.6;
+}
+
+
+
+.toggler {
+  align-self: center;
+}
+
+
+.wrapper {
+  overflow: hidden;
+}
+
+.wrapper.closed {
+  padding: 12px 0px;
+
+}
+
+.wrapper.opened {
+  padding: 12px 12px 12px 0;
+}

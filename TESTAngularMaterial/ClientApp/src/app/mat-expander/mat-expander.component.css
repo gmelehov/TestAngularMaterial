@@ -2,11 +2,14 @@
 
 :host {
   display: block;
+  width: 320px;
 }
 
 
 .item-card {
   padding: 6px 12px;
+  width: inherit;
+  border-radius: 2px;
 }
 
 
@@ -14,12 +17,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
 }
 
 
-header > .summary-wrapper {
+header .header-wrapper {
   flex: 1;
+}
+
+
+.header-wrapper > * {
+  margin: 0;
+  padding: 0 6px;
 }
 
 
@@ -33,6 +41,6 @@ header > .summary-wrapper {
 
 
 
-section {
-  overflow: hidden;
+.overlay {
+  width: inherit;
 }

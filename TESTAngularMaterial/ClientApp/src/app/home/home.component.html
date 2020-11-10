@@ -15,15 +15,35 @@
 
 
 
-<mat-expander [zOpened]="4"
-              [zClosed]="0">
 
-  <p class="summary" style="margin: 0;">This is summary</p>
-  <unit-result></unit-result>
+<mat-card style="display: grid; grid-auto-flow: column;">
 
-</mat-expander>
+  <mat-expander [zOpened]="4"
+                [zClosed]="0">
+
+    <div class="header">This is summary</div>
+
+    <ul class="overlay">
+      <li>1111111</li>
+      <li>2222222</li>
+      <li>3333333</li>
+    </ul>
+
+  </mat-expander>
 
 
 
-<!--<purchase-request></purchase-request>-->
 
+  <aside-panel>
+    <ul style="margin: 0; padding: 0; list-style: none;">
+      <li>1111111</li>
+      <li>2222222</li>
+      <li>3333333</li>
+    </ul>
+  </aside-panel>
+
+
+
+
+
+</mat-card>

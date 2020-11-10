@@ -38,6 +38,8 @@ var stepper_1 = require("@angular/material/stepper");
 var business_process_component_1 = require("./business-process/business-process.component");
 var unit_result_component_1 = require("./unit-result/unit-result.component");
 var mat_expander_component_1 = require("./mat-expander/mat-expander.component");
+var aside_panel_component_1 = require("./aside-panel/aside-panel.component");
+var overlay_1 = require("@angular/cdk/overlay");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -56,7 +58,8 @@ var AppModule = /** @class */ (function () {
                 author_info_component_1.AuthorInfoComponent,
                 business_process_component_1.BusinessProcessComponent,
                 unit_result_component_1.UnitResultComponent,
-                mat_expander_component_1.MatExpanderComponent
+                mat_expander_component_1.MatExpanderComponent,
+                aside_panel_component_1.AsidePanelComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -79,7 +82,8 @@ var AppModule = /** @class */ (function () {
                 button_1.MatButtonModule,
                 table_1.MatTableModule,
                 list_1.MatListModule,
-                stepper_1.MatStepperModule
+                stepper_1.MatStepperModule,
+                overlay_1.OverlayModule,
             ],
             providers: [forms_1.FormBuilder],
             bootstrap: [app_component_1.AppComponent]

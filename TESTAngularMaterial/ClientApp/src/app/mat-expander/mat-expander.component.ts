@@ -1,5 +1,5 @@
 import { state, transition, trigger, animate, style } from '@angular/animations';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ViewChild } from '@angular/core';
 
 
 
@@ -25,8 +25,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class MatExpanderComponent
 {
+  constructor()
+  {
+    globalThis.MEXP = this;
+  }
 
 
+
+
+  @ViewChild("hdr", { static: false })
+  header: ElementRef;
 
 
 
@@ -42,6 +50,12 @@ export class MatExpanderComponent
     this.isUp = !this.isUp;
   }
 
+
+  close()
+  {
+    this.isOpen = false;
+    this.isUp = false;
+  }
 
 
 
@@ -81,7 +95,11 @@ export class MatExpanderComponent
 
 
 
-
+  get triggerWidth()
+  {
+    return this.isOpen ? `${this.header.nativeElement.offsetWidth}px` : 'auto';
+    //return !!this.header ? `${this.header.nativeElement.offsetWidth}px` : 'inherit';
+  }
 
 
 }

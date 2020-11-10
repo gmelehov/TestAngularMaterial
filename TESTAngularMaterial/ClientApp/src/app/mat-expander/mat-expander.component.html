@@ -1,6 +1,6 @@
 
 
-<mat-card [ngClass]="cardClass">
+<!--<mat-card [ngClass]="cardClass">
   <header>
     <div class="summary-wrapper">
       <ng-content select=".summary"></ng-content>
@@ -14,4 +14,35 @@
   <section [@openClose]="isOpen ? 'open' : 'closed'">
     <ng-content></ng-content>
   </section>
-</mat-card>
+</mat-card>-->
+
+
+
+<div class="wrapper" #hdr>
+
+  <header cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+    <div class="header-wrapper">
+      <ng-content select=".header"></ng-content>
+    </div>
+    <button mat-icon-button
+            (click)="toggle()"
+            class="btn-small">
+      <mat-icon [@upDown]="isUp ? 'up' : 'down'">{{toggleIconName}}</mat-icon>
+    </button>
+  </header>
+
+
+  <ng-template cdkConnectedOverlay
+               [cdkConnectedOverlayOrigin]="trigger"
+               [cdkConnectedOverlayWidth]="triggerWidth"
+               [cdkConnectedOverlayOpen]="isOpen"
+               [cdkConnectedOverlayOffsetY]="12"
+               (backdropClick)="close()">
+
+    <mat-card [ngClass]="cardClass">
+      <ng-content select=".overlay"></ng-content>
+    </mat-card>
+    
+  </ng-template>
+
+</div>

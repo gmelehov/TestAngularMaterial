@@ -19,10 +19,15 @@ var MatExpanderComponent = /** @class */ (function () {
         this.zOpened = 4;
         /** Elevation карточки в закрытом состоянии */
         this.zClosed = 0;
+        globalThis.MEXP = this;
     }
     MatExpanderComponent.prototype.toggle = function () {
         this.isOpen = !this.isOpen;
         this.isUp = !this.isUp;
+    };
+    MatExpanderComponent.prototype.close = function () {
+        this.isOpen = false;
+        this.isUp = false;
     };
     Object.defineProperty(MatExpanderComponent.prototype, "cardOpenedClass", {
         /** CSS-класс для открытого состояния карточки */
@@ -48,6 +53,17 @@ var MatExpanderComponent = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(MatExpanderComponent.prototype, "triggerWidth", {
+        get: function () {
+            return this.isOpen ? this.header.nativeElement.offsetWidth + "px" : 'auto';
+            //return !!this.header ? `${this.header.nativeElement.offsetWidth}px` : 'inherit';
+        },
+        enumerable: false,
+        configurable: true
+    });
+    __decorate([
+        core_1.ViewChild("hdr", { static: false })
+    ], MatExpanderComponent.prototype, "header", void 0);
     __decorate([
         core_1.Input()
     ], MatExpanderComponent.prototype, "toggleIconName", void 0);
