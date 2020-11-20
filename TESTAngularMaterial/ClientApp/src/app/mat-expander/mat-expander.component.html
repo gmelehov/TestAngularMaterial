@@ -18,31 +18,40 @@
 
 
 
-<div class="wrapper" #hdr>
+<mat-card [class]="cardClass" #matcard>
+  <div class="wrapper" #hdr [style.height]="fullHeight" [style.transition]="'280ms ease-in-out'">
 
-  <header cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-    <div class="header-wrapper">
-      <ng-content select=".header"></ng-content>
-    </div>
-    <button mat-icon-button
-            (click)="toggle()"
-            class="btn-small">
-      <mat-icon [@upDown]="isUp ? 'up' : 'down'">{{toggleIconName}}</mat-icon>
-    </button>
-  </header>
+    <header cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+      <div class="header-wrapper" (click)="toggle()">
+        <ng-content select=".header"></ng-content>
+      </div>
+      <button mat-icon-button
+              color="primary"
+              (click)="toggle()"
+              class="btn-small">
+        <mat-icon [@upDown]="isUp ? 'up' : 'down'">{{toggleIconName}}</mat-icon>
+      </button>
+    </header>
+
+    <mat-divider [inset]="true"></mat-divider>
 
 
-  <ng-template cdkConnectedOverlay
-               [cdkConnectedOverlayOrigin]="trigger"
-               [cdkConnectedOverlayWidth]="triggerWidth"
-               [cdkConnectedOverlayOpen]="isOpen"
-               [cdkConnectedOverlayOffsetY]="12"
-               (backdropClick)="close()">
 
-    <mat-card [ngClass]="cardClass">
-      <ng-content select=".overlay"></ng-content>
-    </mat-card>
-    
-  </ng-template>
+    <ng-template cdkConnectedOverlay
+                 #tmpl
+                 [cdkConnectedOverlayOrigin]="trigger"
+                 [cdkConnectedOverlayWidth]="triggerWidth"
+                 [cdkConnectedOverlayOpen]="isOpen"
+                 [cdkConnectedOverlayOffsetY]="1"
+                 [cdkConnectedOverlayFlexibleDimensions]="true"
+                 (backdropClick)="close()">
 
-</div>
+
+      <section #overlay class="overlay-wrapper" style="padding-top: 1rem; width: inherit;">
+        <ng-content select=".overlay"></ng-content>
+      </section>
+
+    </ng-template>
+
+  </div>
+</mat-card>

@@ -1,0 +1,24 @@
+
+
+<div *ngFor="let i of itemsToDisplay" class="item-wrapper">
+  <div>
+    <mat-checkbox [ngModel]="i.selected"
+                  (ngModelChange)="onSelectedChange(i, $event)" ></mat-checkbox>
+  </div>
+
+
+  <ng-container>
+    <list-navigator-item-outlet [template]="templateOutlet.templateRef"
+                                [context]="i">
+    </list-navigator-item-outlet>
+  </ng-container>
+</div>
+
+
+
+
+
+<div>
+  <button (click)="onPrev()">Prev</button>
+  <button (click)="onNext()">Next</button>
+</div>

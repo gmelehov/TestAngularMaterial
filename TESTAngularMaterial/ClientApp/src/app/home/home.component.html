@@ -18,12 +18,13 @@
 
 <mat-card style="display: grid; grid-auto-flow: column;">
 
-  <mat-expander [zOpened]="4"
-                [zClosed]="0">
 
-    <div class="header">This is summary</div>
 
-    <ul class="overlay">
+  <mat-expander [zOpened]="4" [zClosed]="0" style="margin-top: 4rem;" [toggleIconName]="'expand_more'">
+
+    <div class="header">This is header</div>
+
+    <ul class="overlay" style="margin: 0; padding: 0; list-style: none;">
       <li>1111111</li>
       <li>2222222</li>
       <li>3333333</li>
@@ -44,6 +45,33 @@
 
 
 
+
+
+</mat-card>
+
+
+
+
+
+<mat-card style="margin: 3rem;" class="mat-elevation-z4">
+
+
+
+  <list-navigator [dataSource]="dataSource"
+                  [(selectedItems)]="selectedUsers">
+
+
+    <mat-card *list-navigator-item="let i, let isSelected = selected">
+
+      <mat-list-item class="item-container"
+                     [class.item-container-selected]="isSelected">
+
+        <p mat-line>{{i.firstName}} {{i.lastName}}</p>
+
+      </mat-list-item>
+    </mat-card>
+    
+  </list-navigator>
 
 
 </mat-card>

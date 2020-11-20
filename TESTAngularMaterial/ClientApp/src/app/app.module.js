@@ -35,11 +35,14 @@ var button_1 = require("@angular/material/button");
 var table_1 = require("@angular/material/table");
 var list_1 = require("@angular/material/list");
 var stepper_1 = require("@angular/material/stepper");
+var checkbox_1 = require("@angular/material/checkbox");
 var business_process_component_1 = require("./business-process/business-process.component");
 var unit_result_component_1 = require("./unit-result/unit-result.component");
 var mat_expander_component_1 = require("./mat-expander/mat-expander.component");
 var aside_panel_component_1 = require("./aside-panel/aside-panel.component");
 var overlay_1 = require("@angular/cdk/overlay");
+var bp_menu_module_1 = require("./bp-menu/bp-menu.module");
+var list_navigator_module_1 = require("./list-navigator/list-navigator.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -83,7 +86,10 @@ var AppModule = /** @class */ (function () {
                 table_1.MatTableModule,
                 list_1.MatListModule,
                 stepper_1.MatStepperModule,
+                checkbox_1.MatCheckboxModule,
                 overlay_1.OverlayModule,
+                bp_menu_module_1.BPMenuModule,
+                list_navigator_module_1.ListNavigatorModule
             ],
             providers: [forms_1.FormBuilder],
             bootstrap: [app_component_1.AppComponent]

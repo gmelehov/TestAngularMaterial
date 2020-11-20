@@ -29,11 +29,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 import { BusinessProcessComponent } from './business-process/business-process.component';
 import { UnitResultComponent } from './unit-result/unit-result.component';
 import { MatExpanderComponent } from './mat-expander/mat-expander.component';
 import { AsidePanelComponent } from './aside-panel/aside-panel.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { BPMenuModule } from './bp-menu/bp-menu.module';
+import { ListNavigatorModule } from './list-navigator/list-navigator.module';
 
 
 
@@ -77,7 +82,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatTableModule,
     MatListModule,
     MatStepperModule,
+    MatCheckboxModule,
     OverlayModule,
+
+    BPMenuModule,
+    ListNavigatorModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

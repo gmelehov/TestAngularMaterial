@@ -1,5 +1,6 @@
 import { state, transition, trigger, animate, style } from '@angular/animations';
-import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ViewChild } from '@angular/core';
+import { OverlayRef } from '@angular/cdk/typings/esm5/overlay';
+import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ViewChild, AfterViewInit, TemplateRef } from '@angular/core';
 
 
 
@@ -10,20 +11,18 @@ import { Component, Input, Output, EventEmitter, ContentChild, ElementRef, ViewC
   styleUrls: ['mat-expander.component.css'],
   animations: [
     trigger('openClose', [
-      state('open', style({ maxHeight: '500px', visibility: 'visible', paddingTop: '32px' })),
-      state('closed', style({ maxHeight: '0px', visibility: 'collapse', paddingTop: '0px' })),
-      transition('open => closed', [animate('275ms cubic-bezier(0.4,0.0,0.2,1)')]),
-      transition('closed => open', [animate('275ms cubic-bezier(0.4,0.0,0.2,1)')]),
+      state('open', style({ maxHeight: '500px' })),
+      state('closed', style({ height: 'auto' })),
+      transition('open <=> closed', [animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
     ]),
     trigger('upDown', [
       state('up', style({ transform: 'rotate(180deg)' })),
       state('down', style({ transform: 'rotate(0)' })),
-      transition('up => down', [animate('275ms cubic-bezier(0.4,0.0,0.2,1)')]),
-      transition('down => up', [animate('275ms cubic-bezier(0.4,0.0,0.2,1)')]),
+      transition('up <=> down', [animate('225ms cubic-bezier(0.4,0.0,0.2,1)')]),
     ]),
   ]
 })
-export class MatExpanderComponent
+export class MatExpanderComponent implements AfterViewInit
 {
   constructor()
   {
@@ -33,8 +32,36 @@ export class MatExpanderComponent
 
 
 
+
+  ngAfterViewInit()
+  {
+    document.addEventListener("click", (ev) =>
+    {
+      ev.stopPropagation();
+      if (!(ev.target as HTMLElement).closest('section.overlay-wrapper') && (ev.target as HTMLElement).closest('div.wrapper') != this.header.nativeElement as HTMLElement)
+      {
+        this.close();
+      }
+    });
+
+    
+  }
+
+
+
+
   @ViewChild("hdr", { static: false })
   header: ElementRef;
+
+  @ViewChild("overlay", { static: false })
+  section: ElementRef;
+
+  @ViewChild("matcard", { static: false })
+  card: ElementRef;
+
+
+  @ViewChild("tmpl", { static: false })
+  tmpl: TemplateRef<OverlayRef>;
 
 
 
@@ -48,6 +75,8 @@ export class MatExpanderComponent
   {
     this.isOpen = !this.isOpen;
     this.isUp = !this.isUp;
+
+    setTimeout(() => this.computeHeight());
   }
 
 
@@ -55,6 +84,8 @@ export class MatExpanderComponent
   {
     this.isOpen = false;
     this.isUp = false;
+
+    setTimeout(() => this.computeHeight());
   }
 
 
@@ -62,11 +93,11 @@ export class MatExpanderComponent
 
   /** Название Material-иконки для переключателя в закрытом состоянии */
   @Input()
-  toggleIconName: string = 'arrow_downward';
+  toggleIconName: string = 'arrow_drop_down';
 
 
 
- 
+
   /** Elevation карточки в открытом состоянии */
   @Input()
   zOpened: number = 4;
@@ -74,6 +105,11 @@ export class MatExpanderComponent
   /** Elevation карточки в закрытом состоянии */
   @Input()
   zClosed: number = 0;
+
+
+  fullHeight: string = 'auto';
+
+
 
   /** CSS-класс для открытого состояния карточки */
   get cardOpenedClass()
@@ -99,6 +135,26 @@ export class MatExpanderComponent
   {
     return this.isOpen ? `${this.header.nativeElement.offsetWidth}px` : 'auto';
     //return !!this.header ? `${this.header.nativeElement.offsetWidth}px` : 'inherit';
+  }
+
+
+  get overlayHeight()
+  {
+    return !!this.section && !!this.header ? this.isOpen ? `${this.section.nativeElement.offsetHeight + this.header.nativeElement.offsetHeight}px` : 'auto' : 'auto';
+  }
+
+
+
+  computeHeight()
+  {
+    this.fullHeight = !!this.section && !!this.header ? this.isOpen ? `${this.section.nativeElement.offsetHeight + this.header.nativeElement.offsetHeight}px` : 'auto' : 'auto';
+  }
+
+
+
+  noAction()
+  {
+
   }
 
 
